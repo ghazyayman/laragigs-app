@@ -26,7 +26,7 @@ namespace App\Models;
         public static function find($id) {
             $listings = self::all();
             
-            foreach($lisitngs as $listing){
+            foreach($listings as $listing){
                 if($listing['id'] == $id) {
                     return $listing;
                 }
