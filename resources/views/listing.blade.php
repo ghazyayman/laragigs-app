@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-@include('partial._search')
+@include('partials._search')
 
 
 <a href="index.html" class="inline-block text-black ml-4 mb-4"
