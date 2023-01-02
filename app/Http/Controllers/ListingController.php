@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Listing;
+use GuzzleHttp\Psr7\Request;
 
 
 class ListingController extends Controller
@@ -9,7 +10,7 @@ class ListingController extends Controller
     // Show all listings
     public function index() {
         return view('listings.index', [
-            'listings' => Listing::all()
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->get()
         ]);
     }
 
@@ -19,4 +20,14 @@ class ListingController extends Controller
             'listing' => $listing
         ]);
     }
-}
+
+    // Show Create Form
+    public function create() {
+            return view('listings.create');
+        }
+
+    // Store Listing Data
+    public function store(Request $request) {
+        dd($request->all());
+    }
+}    
